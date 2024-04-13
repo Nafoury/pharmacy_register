@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pharamacy Drug Registeration</string>
+    <string name="select">Select Category</string>
+    <string-array name="categories_array">
+        <item>Vitamins</item>
+        <item>Hormones</item>
+        <item>Anxiety</item>
+        <item>Skin Care</item>
+        <item>Analgesics</item>
+        <item>Antipyretic</item>
+    </string-array>
+</resources>
