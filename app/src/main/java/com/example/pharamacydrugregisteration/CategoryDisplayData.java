@@ -1,9 +1,12 @@
 package com.example.pharamacydrugregisteration;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +21,7 @@ public class CategoryDisplayData extends AppCompatActivity {
     DrugAdapter drugAdapter;
     DbSchemaSqlite dbSchemaSqlite;
     ArrayList<byte[]> drug_image;
-    ArrayList<String> drug_name, drug_amount,drug_price;
+    ArrayList<String> drug_name, drug_amount,drug_price,drug_category;
 
     ImageButton imageButton;
     @Override
@@ -33,14 +36,23 @@ public class CategoryDisplayData extends AppCompatActivity {
         drug_name = new ArrayList<>();
         drug_amount = new ArrayList<>();
         drug_price=new ArrayList<>();
+        drug_category=new ArrayList<>();
 
         // Display data
         displayData();
 
         // Set up RecyclerView and adapter
-        drugAdapter = new DrugAdapter(this, drug_name, drug_image, drug_amount,drug_price);
+        drugAdapter = new DrugAdapter(this, drug_name, drug_image, drug_amount,drug_price,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(drugAdapter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1){
+            recreate();
+        }
     }
 
     void displayData() {

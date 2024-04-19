@@ -65,22 +65,30 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
         String[] selectionArgs = {category};
         return db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null);
     }
-    void updateData(String row_id,String name, int amount, float price, byte[] image,String category){
+    void updateData(String row_id, String name, String amount, String price, byte[] image, String category) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, name);
         cv.put(DRUGS_AMOUNT, amount);
         cv.put(DRUGS_PRICES, price);
         cv.put(COLUMN_IMAGE, image);
-        cv.put(CATEGORY_COLUMN,category);
+        cv.put(CATEGORY_COLUMN, category);
 
-      long result=  db.update(TABLE_NAME,cv,"_id=?",new String[]{row_id});
-      if(result==-1){
-          Toast.makeText(context,"Failed to update ",Toast.LENGTH_SHORT).show();
-      }
-      else {
-          Toast.makeText(context,"Successfully updated ",Toast.LENGTH_SHORT).show();
-      }
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
+        if (result == -1) {
+            Toast.makeText(context, "Failed to update", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Successfully updated", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void deleteDrug(String row_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(TABLE_NAME, "_id=?", new String[]{row_id});
+        if (result > 0) {
+            Toast.makeText(context, "Drug deleted successfully", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Failed to delete drug", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
