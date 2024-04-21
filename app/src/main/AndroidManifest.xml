@@ -13,8 +13,12 @@
         android:theme="@style/Theme.PharamacyDrugRegisteration"
         tools:targetApi="31">
         <activity
-            android:name=".AddUser"
+            android:name=".UpdateUser"
             android:exported="false" />
+        <activity
+            android:name=".AddUser"
+            android:exported="false"
+            android:theme="@style/Theme.AddUser" />
         <activity
             android:name=".CommonPage"
             android:exported="false" />
@@ -23,13 +27,16 @@
             android:exported="false" />
         <activity
             android:name=".UpdateActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AddPage1" />
         <activity
             android:name=".CategoryDisplayData"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AddPage2" />
         <activity
             android:name=".AddPage"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AddPage" />
         <activity
             android:name=".HomePage"
             android:exported="false" />

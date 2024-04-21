@@ -71,11 +71,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"/>
             <Button
+                android:id="@+id/signup"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@drawable/buttonshape"
-                android:text="Sign up"
+                android:text="Login in"
                 android:textColor="@color/white"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

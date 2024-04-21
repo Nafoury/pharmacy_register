@@ -38,7 +38,7 @@ public class AddUser extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle("Add User");
+            actionBar.setTitle("Add User Information");
 
             actionBar.setDisplayHomeAsUpEnabled(true); // Enable back arrow
         }

@@ -114,5 +114,10 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
         cv.put(COLUMN1_IMAGE, image);
         return db.insert(TABLE_NAME1, null, cv);
     }
+    public Cursor getAllUsers() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {COLUMN1_ID, COLUMN1_TITLE, COLUMN2_TITLE, COLUMN1_IMAGE};
+        return db.query(TABLE_NAME1, projection, null, null, null, null, null);
+    }
 
 }

@@ -1,6 +1,7 @@
 package com.example.pharamacydrugregisteration;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class CategoryDisplayData extends AppCompatActivity {
     DbSchemaSqlite dbSchemaSqlite;
     ArrayList<byte[]> drug_image;
     ArrayList<String> drug_name, drug_amount,drug_price,drug_category;
+    ActionBar actionBar;
 
     ImageButton imageButton;
     @Override
@@ -37,6 +39,8 @@ public class CategoryDisplayData extends AppCompatActivity {
         drug_amount = new ArrayList<>();
         drug_price=new ArrayList<>();
         drug_category=new ArrayList<>();
+
+
 
         // Display data
         displayData();

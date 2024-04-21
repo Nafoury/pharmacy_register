@@ -1,9 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PharamacyDrugRegisteration" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/lighBlue</item>
+        <item name="actionBarSize">48dp</item>
     </style>
 
-    <style name="Theme.PharamacyDrugRegisteration" parent="Base.Theme.PharamacyDrugRegisteration" />
+    <!-- Define the theme for the AddUser activity -->
+    <style name="Theme.AddUser" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the theme as needed for the AddUser activity -->
+    </style>
+
+    <style name="Theme.AddPage" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the theme as needed for the AddUser activity -->
+    </style>
+
+    <style name="Theme.AddPage1" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the theme as needed for the AddUser activity -->
+    </style>
+
+    <style name="Theme.AddPage2" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the theme as needed for the AddUser activity -->
+    </style>
+
+    <style name="Theme.AddPage3" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the theme as needed for the AddUser activity -->
+    </style>
+
+    <!-- Define the overall theme for your application -->
+    <style name="Theme.PharamacyDrugRegisteration" parent="Base.Theme.PharamacyDrugRegisteration">
+        <!-- Customize the overall theme for your application -->
+    </style>
 </resources>

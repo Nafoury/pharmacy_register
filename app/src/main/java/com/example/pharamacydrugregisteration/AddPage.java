@@ -2,6 +2,7 @@ package com.example.pharamacydrugregisteration;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Spinner;
 import android.content.Intent;
@@ -37,6 +38,13 @@ public class AddPage extends AppCompatActivity {
         add_button = findViewById(R.id.savedrug);
         imageView = findViewById(R.id.imageView3);
         spinnerCategory = findViewById(R.id.spinner_category);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Add drug");
+
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable back arrow
+        }
 
         // Gallery launcher for selecting image
         galleryLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {

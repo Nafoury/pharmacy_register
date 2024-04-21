@@ -21,6 +21,7 @@ public class HomeFregament extends Fragment {
 
     FloatingActionButton addB;
     CardView cardView1, cardView2, cardView3, cardView4, cardView5, cardView6;
+    ActionBar actionBar;
 
     @Nullable
     @Override
@@ -34,9 +35,10 @@ public class HomeFregament extends Fragment {
         cardView4 = rootView.findViewById(R.id.skin);
         cardView5 = rootView.findViewById(R.id.skin2);
         cardView6 = rootView.findViewById(R.id.vitamins1);
+        actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
 
         addB = rootView.findViewById(R.id.add_button);
-        ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+
         if (actionBar != null) {
             actionBar.hide();
         }
@@ -56,13 +58,18 @@ public class HomeFregament extends Fragment {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openCategoryDetail("Vitamins");
+                updateActionBarTitle("Vitamins");
+
             }
         });
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openCategoryDetail("Hormones");
+                updateActionBarTitle("Hormones");
             }
         });
         cardView3.setOnClickListener(new View.OnClickListener() {
@@ -98,5 +105,11 @@ public class HomeFregament extends Fragment {
         Intent intent = new Intent(getActivity(), CategoryDisplayData.class);
         intent.putExtra("category", category);
         startActivity(intent);
+    }
+    private void updateActionBarTitle(String title) {
+        if (actionBar != null) {
+
+            actionBar.setTitle(title);
+        }
     }
 }

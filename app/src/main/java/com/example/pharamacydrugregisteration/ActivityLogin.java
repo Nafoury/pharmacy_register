@@ -1,5 +1,6 @@
 package com.example.pharamacydrugregisteration;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,7 +18,11 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
 
-
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+        signup1=findViewById(R.id.signup);
 
         signup1.setOnClickListener(new View.OnClickListener() {
             @Override

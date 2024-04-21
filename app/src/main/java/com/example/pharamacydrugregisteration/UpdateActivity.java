@@ -2,6 +2,7 @@ package com.example.pharamacydrugregisteration;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
@@ -39,6 +40,13 @@ public class UpdateActivity extends AppCompatActivity {
         update_button=findViewById(R.id.updatedrug);
         imageView1=findViewById(R.id.imageu);
         spinnerCategory1=findViewById(R.id.spinner_category1);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("Update drug");
+
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable back arrow
+        }
 
         galleryLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
             if (result != null) {
