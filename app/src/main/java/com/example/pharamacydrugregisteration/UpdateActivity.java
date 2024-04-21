@@ -32,12 +32,13 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        name_input1=findViewById(R.id.drug_name1);
-        amount_input1=findViewById(R.id.drug_amount1);
-        price_input1=findViewById(R.id.drug_price1);
-        update_button=findViewById(R.id.update_drug);
-        imageView1=findViewById(R.id.drug_image1);
-        spinnerCategory1=findViewById(R.id.spinner_category);
+
+        name_input1=findViewById(R.id.drugnameu);
+        amount_input1=findViewById(R.id.drugamountu);
+        price_input1=findViewById(R.id.drugpriceu);
+        update_button=findViewById(R.id.updatedrug);
+        imageView1=findViewById(R.id.imageu);
+        spinnerCategory1=findViewById(R.id.spinner_category1);
 
         galleryLauncher = registerForActivityResult(new ActivityResultContracts.GetContent(), result -> {
             if (result != null) {

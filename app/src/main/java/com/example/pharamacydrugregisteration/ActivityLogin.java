@@ -23,10 +23,7 @@ public class ActivityLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create Intent to move to the OnBoarding activity
-                Intent intent = new Intent(ActivityLogin.this, HomePage.class);
 
-                // Start the OnBoarding activity
-                startActivity(intent);
             }
         });
     }

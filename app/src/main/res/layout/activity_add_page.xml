@@ -16,6 +16,10 @@
         android:ems="10"
         android:inputType="text"
         android:hint="Drug Name"
+        android:padding="10dp"
+        android:drawablePadding="8dp"
+        app:drawableStartCompat="@drawable/drugname"
+        android:background="@drawable/edittextshape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,11 +28,17 @@
         android:id="@+id/editTextNumberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
+        android:background="@drawable/edittextshape"
         android:ems="10"
         android:hint="Quantity"
+        android:padding="10dp"
+        android:drawablePadding="8dp"
         android:inputType="numberDecimal"
+        app:drawableStartCompat="@drawable/quantity"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
 
@@ -36,22 +46,29 @@
         android:id="@+id/editTextNumberDecimal2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
+        android:background="@drawable/edittextshape"
         android:ems="10"
         android:hint="Price"
+        android:padding="10dp"
+        android:drawablePadding="8dp"
         android:inputType="numberDecimal"
+        app:drawableStartCompat="@drawable/name4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
 
     <Spinner
         android:id="@+id/spinner_category"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/select"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2"
+        tools:layout_editor_absoluteX="70dp" />
 
     <Button
         android:id="@+id/savedrug"

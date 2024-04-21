@@ -9,70 +9,81 @@
 
 
     <EditText
-        android:id="@+id/drug_name1"
+        android:id="@+id/drugnameu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
         android:inputType="text"
         android:hint="Drug Name"
+        app:drawableStartCompat="@drawable/drugname"
+        android:background="@drawable/edittextshape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/drug_amount1"
+        android:id="@+id/drugamountu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
+        android:background="@drawable/edittextshape"
         android:ems="10"
         android:hint="Quantity"
         android:inputType="numberDecimal"
+        app:drawableStartCompat="@drawable/quantity"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drug_name1" />
+        app:layout_constraintTop_toBottomOf="@+id/drugnameu" />
 
     <EditText
-        android:id="@+id/drug_price1"
+        android:id="@+id/drugpriceu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
+        android:background="@drawable/edittextshape"
         android:ems="10"
         android:hint="Price"
         android:inputType="numberDecimal"
+        app:drawableStartCompat="@drawable/name4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drug_amount1" />
+        app:layout_constraintTop_toBottomOf="@+id/drugamountu" />
 
     <Spinner
-        android:id="@+id/spinner_category"
+        android:id="@+id/spinner_category1"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/select"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        app:layout_constraintTop_toBottomOf="@+id/drug_price1" />
+        app:layout_constraintTop_toBottomOf="@+id/drugpriceu"
+        tools:layout_editor_absoluteX="70dp" />
 
     <Button
-        android:id="@+id/update_drug"
+        android:id="@+id/updatedrug"
         android:layout_width="160dp"
         android:layout_height="60dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="60dp"
-        android:text="Update Drug"
-        android:textSize="18dp"
+        android:text="Update drug"
+        android:textSize="20dp"
         android:background="@drawable/buttonshape"
         android:textColor="@color/white"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drug_price1" />
+        app:layout_constraintTop_toBottomOf="@+id/drugpriceu" />
 
     <ImageView
-        android:id="@+id/drug_image1"
+        android:id="@+id/imageu"
         android:layout_width="242dp"
         android:layout_height="133dp"
         android:layout_marginStart="50dp"

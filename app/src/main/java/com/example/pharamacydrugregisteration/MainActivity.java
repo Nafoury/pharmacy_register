@@ -1,5 +1,6 @@
 package com.example.pharamacydrugregisteration;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         next1 = findViewById(R.id.next);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
 
         next1.setOnClickListener(new View.OnClickListener() {

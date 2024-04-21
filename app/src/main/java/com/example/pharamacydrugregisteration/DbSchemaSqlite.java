@@ -18,8 +18,13 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
     private static final String DRUGS_AMOUNT = "drugs_amount";
     private static final String DRUGS_PRICES = "drugs_prices";
     private static final String COLUMN_IMAGE = "image";
-
     private static  final String CATEGORY_COLUMN="category";
+
+    private static final String TABLE_NAME1 = "users";
+    private static final String COLUMN1_ID = "_id";
+    private static final String COLUMN1_TITLE = "user_name";
+    private static final String COLUMN2_TITLE = "user_surname";
+    private static final String COLUMN1_IMAGE = "user_image";
 
     private Context context;
 
@@ -32,18 +37,29 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN1_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN_TITLE + " TEXT, " +
                         DRUGS_AMOUNT + " INTEGER, " +
                         DRUGS_PRICES + " REAL, " +
                         COLUMN_IMAGE + " BLOB ," +
                         CATEGORY_COLUMN + " TEXT )";
         db.execSQL(query);
+
+        String query1 =
+                "CREATE TABLE " + TABLE_NAME1 + " (" +
+                        COLUMN1_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN1_TITLE + " TEXT, " +
+                        COLUMN2_TITLE + " TEXT, " +
+                        COLUMN1_IMAGE + " BLOB )";  // Removed the comma here
+        db.execSQL(query1);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
         onCreate(db);
     }
 
@@ -89,6 +105,14 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
         } else {
             Toast.makeText(context, "Failed to delete drug", Toast.LENGTH_SHORT).show();
         }
+    }
+    public long addUser(String name, String surname, byte[] image) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN1_TITLE, name);
+        cv.put(COLUMN2_TITLE, surname);
+        cv.put(COLUMN1_IMAGE, image);
+        return db.insert(TABLE_NAME1, null, cv);
     }
 
 }
