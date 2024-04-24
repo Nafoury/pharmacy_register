@@ -27,7 +27,7 @@ public class OnBoarding extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create Intent to move to the OnBoarding activity
-                Intent intent = new Intent(OnBoarding.this, CommonPage.class);
+                Intent intent = new Intent(OnBoarding.this, SignUpActivity.class);
 
                 // Start the OnBoarding activity
                 startActivity(intent);

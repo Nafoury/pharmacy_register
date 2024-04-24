@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginpharamcy5"
-    tools:context=".ActivityLogin">
+    tools:context=".SignUpActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textSize="20dp"
+
                 android:textStyle="bold"
                 />
             <EditText
@@ -58,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:textSize="20dp"
+
                 android:textStyle="bold"
                 />
             <EditText
@@ -71,15 +71,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="10dp"/>
             <Button
-                android:id="@+id/login"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:background="@drawable/buttonshape"
-                android:text="Login in"
-                android:textColor="@color/white"/>
+                android:text="Sign up"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Do you have an account?" />
+
+                <Button
+                    android:id="@+id/login1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Login"
+                    android:textColor="@color/rose"
+                    android:background="@null" /> <!-- Remove background of the Button -->
+            </LinearLayout>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
+

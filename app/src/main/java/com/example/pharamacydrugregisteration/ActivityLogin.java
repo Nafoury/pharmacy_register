@@ -22,7 +22,7 @@ public class ActivityLogin extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        signup1=findViewById(R.id.signup);
+        signup1=findViewById(R.id.login);
 
         signup1.setOnClickListener(new View.OnClickListener() {
             @Override

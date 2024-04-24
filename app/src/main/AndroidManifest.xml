@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PharamacyDrugRegisteration"
         tools:targetApi="31">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateUser"
             android:exported="false" />
         <activity
