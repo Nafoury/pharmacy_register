@@ -23,8 +23,8 @@
         android:textColor="@color/rose"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-
-        android:textSize="17dp"
+        android:lineSpacingExtra="4dp"
+        android:textSize="19dp"
         android:textStyle="bold"
         android:layout_marginTop="70dp"
          />

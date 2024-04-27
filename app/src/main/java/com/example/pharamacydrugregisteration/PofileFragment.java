@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -18,61 +20,32 @@ import android.widget.TextView;
 
 public class PofileFragment extends Fragment {
 
-    Button addInfo,updateInfo;
-    TextView textView;
+    Button logout,updateInfo;
+    TextView username,email,password;
     ImageView userPhoto;
     DbSchemaSqlite db;
+    ActionBar actionBar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_pofile, container, false);
 
-        addInfo = rootView.findViewById(R.id.button);
-        updateInfo=rootView.findViewById(R.id.button2);
-        textView=rootView.findViewById(R.id.namesurname);
-        userPhoto=rootView.findViewById(R.id.profileImage);
+        updateInfo = rootView.findViewById(R.id.updateuser);
+        logout=rootView.findViewById(R.id.logout);
+        username=rootView.findViewById(R.id.usernameU);
+        email=rootView.findViewById(R.id.email);
+        password=rootView.findViewById(R.id.password);
+        userPhoto=rootView.findViewById(R.id.userImageU);
         db = new DbSchemaSqlite(getActivity());
-        displayUserData();
-        addInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create Intent to move to the AddUser activity
-                Intent intent = new Intent(getActivity(), AddUser.class);
 
-                // Start the AddUser activity
-                startActivity(intent);
-            }
-        });
+          actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle( "User Profile");
+            actionBar.setDisplayHomeAsUpEnabled(true); // Enable back arrow
+        }
 
-        updateInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create Intent to move to the AddUser activity
-                Intent intent = new Intent(getActivity(), UpdateUser.class);
-
-                // Start the AddUser activity
-                startActivity(intent);
-            }
-        });
         return  rootView;
     }
 
-    private void displayUserData() {
-        Cursor cursor = db.getAllUsers();
-
-        if (cursor.moveToFirst()) {
-            String name = cursor.getString(1);
-            String surname = cursor.getString(2);
-            byte[] image = (cursor.getBlob(3));
-
-            // Set the name and surname to the TextView
-            textView.setText(name + " " + surname);
-
-            // Set the user photo to the ImageView
-            if (image != null) {
-                userPhoto.setImageBitmap(BitmapFactory.decodeByteArray(image, 0, image.length));
-            }
-        }
-    }
-}
+  }

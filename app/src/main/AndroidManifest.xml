@@ -12,22 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PharamacyDrugRegisteration"
         tools:targetApi="31">
+
         <activity
             android:name=".SignUpActivity"
             android:exported="false" />
-        <activity
-            android:name=".UpdateUser"
-            android:exported="false" />
-        <activity
-            android:name=".AddUser"
-            android:exported="false"
-            android:theme="@style/Theme.AddUser" />
+
+
         <activity
             android:name=".CommonPage"
             android:exported="false" />
-        <activity
-            android:name=".BottomBar"
-            android:exported="false" />
+
         <activity
             android:name=".UpdateActivity"
             android:exported="false"
@@ -35,7 +29,7 @@
         <activity
             android:name=".CategoryDisplayData"
             android:exported="false"
-            android:theme="@style/Theme.AddPage2" />
+            />
         <activity
             android:name=".AddPage"
             android:exported="false"

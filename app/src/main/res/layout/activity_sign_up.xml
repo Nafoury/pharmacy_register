@@ -96,9 +96,9 @@
                     android:id="@+id/login1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@null"
                     android:text="Login"
-                    android:textColor="@color/rose"
-                    android:background="@null" /> <!-- Remove background of the Button -->
+                    android:textColor="@color/rose" /> <!-- Remove background of the Button -->
             </LinearLayout>
 
 

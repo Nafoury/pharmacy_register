@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
+        android:padding="10dp"
         android:inputType="text"
         android:hint="Drug Name"
         app:drawableStartCompat="@drawable/drugname"
@@ -30,6 +31,7 @@
         android:layout_marginEnd="98dp"
         android:background="@drawable/edittextshape"
         android:ems="10"
+        android:padding="10dp"
         android:hint="Quantity"
         android:inputType="numberDecimal"
         app:drawableStartCompat="@drawable/quantity"
@@ -44,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="98dp"
+        android:padding="10dp"
         android:background="@drawable/edittextshape"
         android:ems="10"
         android:hint="Price"
@@ -63,6 +66,45 @@
         android:hint="@string/select"
         app:layout_constraintTop_toBottomOf="@+id/drugpriceu"
         tools:layout_editor_absoluteX="70dp" />
+    <EditText
+        android:id="@+id/produceDate"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="134dp"
+        android:background="@drawable/edittextshape"
+        android:ems="10"
+        android:hint="Production date"
+        android:inputType="date"
+        android:padding="10dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/spinner_category1"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <EditText
+        android:id="@+id/expireDate"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="180dp"
+        android:background="@drawable/edittextshape"
+        android:ems="10"
+        android:hint="Expiration date"
+        android:inputType="date"
+        android:padding="10dp"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.804"
+        app:layout_constraintRight_toRightOf="@+id/produceDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_category1"
+        app:layout_constraintVertical_bias="0.538" />
 
     <Button
         android:id="@+id/updatedrug"
@@ -72,15 +114,17 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="60dp"
-        android:text="Update drug"
-        android:textSize="20dp"
         android:background="@drawable/buttonshape"
-        android:textColor="@color/white"
+        android:text="Save Changes"
         android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/drugpriceu" />
+        app:layout_constraintTop_toBottomOf="@+id/drugpriceu"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageu"

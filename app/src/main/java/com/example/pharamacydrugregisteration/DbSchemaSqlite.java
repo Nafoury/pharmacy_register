@@ -20,6 +20,8 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
     private static final String COLUMN_IMAGE = "image";
     private static  final String CATEGORY_COLUMN="category";
 
+    private static final String PRODUCTION_DATE = "start";
+    private static  final String EXPIRATION_DATE="end";
     private static final String TABLE_NAME1 = "users";
     private static final String COLUMN1_ID = "_id";
     private static final String COLUMN1_TITLE = "user_name";
@@ -37,20 +39,24 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query =
                 "CREATE TABLE " + TABLE_NAME + " (" +
-                        COLUMN1_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN_TITLE + " TEXT, " +
                         DRUGS_AMOUNT + " INTEGER, " +
                         DRUGS_PRICES + " REAL, " +
-                        COLUMN_IMAGE + " BLOB ," +
-                        CATEGORY_COLUMN + " TEXT )";
+                        CATEGORY_COLUMN + " TEXT, " +
+                        PRODUCTION_DATE + " TEXT, " +
+                        EXPIRATION_DATE + " TEXT, " +
+                        COLUMN_IMAGE + " BLOB)";
         db.execSQL(query);
 
+
+        // Your existing user table creation query
         String query1 =
                 "CREATE TABLE " + TABLE_NAME1 + " (" +
                         COLUMN1_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN1_TITLE + " TEXT, " +
                         COLUMN2_TITLE + " TEXT, " +
-                        COLUMN1_IMAGE + " BLOB )";  // Removed the comma here
+                        COLUMN1_IMAGE + " BLOB)";
         db.execSQL(query1);
     }
 
@@ -63,25 +69,7 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long addDrug(String name, int amount, float price, byte[] image,String category) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put(COLUMN_TITLE, name);
-        cv.put(DRUGS_AMOUNT, amount);
-        cv.put(DRUGS_PRICES, price);
-        cv.put(COLUMN_IMAGE, image);
-        cv.put(CATEGORY_COLUMN,category);
-        return db.insert(TABLE_NAME, null, cv);
-    }
-
-    public Cursor getDataByCategory(String category) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String[] projection = {COLUMN_ID, COLUMN_TITLE, DRUGS_AMOUNT, DRUGS_PRICES, COLUMN_IMAGE};
-        String selection = CATEGORY_COLUMN + "=?";
-        String[] selectionArgs = {category};
-        return db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null);
-    }
-    void updateData(String row_id, String name, String amount, String price, byte[] image, String category) {
+    public long addDrug(String name, int amount, float price, byte[] image, String category, String productionDate, String expirationDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TITLE, name);
@@ -89,6 +77,28 @@ public class DbSchemaSqlite extends SQLiteOpenHelper {
         cv.put(DRUGS_PRICES, price);
         cv.put(COLUMN_IMAGE, image);
         cv.put(CATEGORY_COLUMN, category);
+        cv.put(PRODUCTION_DATE, productionDate);    // Add production date
+        cv.put(EXPIRATION_DATE, expirationDate);    // Add expiration date
+        return db.insert(TABLE_NAME, null, cv);
+    }
+
+    public Cursor getDataByCategory(String category) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] projection = {COLUMN_ID, COLUMN_TITLE, DRUGS_AMOUNT, DRUGS_PRICES,CATEGORY_COLUMN,PRODUCTION_DATE,EXPIRATION_DATE,COLUMN_IMAGE,};
+        String selection = CATEGORY_COLUMN + "=?";
+        String[] selectionArgs = {category};
+        return db.query(TABLE_NAME, projection, selection, selectionArgs, null, null, null);
+    }
+    void updateData(String row_id, String name, String amount, String price, byte[] image, String category, String datend,String datestart) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, name);
+        cv.put(DRUGS_AMOUNT, amount);
+        cv.put(DRUGS_PRICES, price);
+        cv.put(COLUMN_IMAGE, image);
+        cv.put(CATEGORY_COLUMN, category);
+        cv.put(PRODUCTION_DATE,datend);
+        cv.put(EXPIRATION_DATE,datend);
 
         long result = db.update(TABLE_NAME, cv, "_id=?", new String[]{row_id});
         if (result == -1) {

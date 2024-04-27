@@ -18,13 +18,10 @@
         <!-- Customize the theme as needed for the AddUser activity -->
     </style>
 
-    <style name="Theme.AddPage2" parent="Base.Theme.PharamacyDrugRegisteration">
-        <!-- Customize the theme as needed for the AddUser activity -->
-    </style>
-
     <style name="Theme.AddPage3" parent="Base.Theme.PharamacyDrugRegisteration">
         <!-- Customize the theme as needed for the AddUser activity -->
     </style>
+
 
     <!-- Define the overall theme for your application -->
     <style name="Theme.PharamacyDrugRegisteration" parent="Base.Theme.PharamacyDrugRegisteration">

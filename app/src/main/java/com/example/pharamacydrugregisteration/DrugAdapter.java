@@ -1,56 +1,62 @@
 package com.example.pharamacydrugregisteration;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.app.Activity;
+        import android.app.AlertDialog;
+        import android.content.Context;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
+        import android.view.LayoutInflater;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
+        import android.widget.ImageButton;
+        import android.widget.ImageView;
+        import android.widget.LinearLayout;
+        import android.widget.PopupMenu;
+        import android.widget.Spinner;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.core.graphics.BitmapKt;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.core.graphics.BitmapKt;
+        import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+        import java.util.ArrayList;
 
 public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.MyViewHolder> {
 
     private Context context;
     String id;
+    private String category;
     Activity activity;
-    private ArrayList drug_name,drug_image,drug_amount,drug_price,drug_category,drug_id;
-    DrugAdapter( Context context,
+    private ArrayList drug_name,drug_image,drug_amount,drug_price,drug_id,drug_end,drug_start;
+    DrugAdapter(
 
-                 ArrayList drug_name,
-                 ArrayList drug_image,
-                 ArrayList drug_amount,
-                 ArrayList drug_price,
-
-
-
-                 Activity aactivity
+            Context context,
+            ArrayList drug_id,
+            ArrayList drug_name,
+            ArrayList drug_image,
+            ArrayList drug_amount,
+            ArrayList drug_price,
+            String category,
+            ArrayList drug_end,
+            ArrayList drug_start,
+            Activity aactivity
 
     ){
         this.context=context;
 
+        this.drug_id=drug_id;
         this.drug_name=drug_name;
         this.drug_image=drug_image;
         this.drug_amount=drug_amount;
         this.drug_price=drug_price;
-
+        this.category = category;
+        this.drug_end=drug_end;
+        this.drug_start=drug_start;
         this.activity=aactivity;
 
 
@@ -90,12 +96,14 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.MyViewHolder> 
                             // Start UpdateActivity
                             Intent intent = new Intent(context, UpdateActivity.class);
                             // Pass data to UpdateActivity if needed
+                            intent.putExtra("id",String.valueOf(drug_id.get(position)));
                             intent.putExtra("name", String.valueOf(drug_name.get(position)));
                             intent.putExtra("price", String.valueOf(drug_price.get(position)));
                             intent.putExtra("amount", String.valueOf(drug_amount.get(position)));
                             intent.putExtra("image", (byte[]) drug_image.get(position));
-                            intent.putExtra("category",drug_category);
-
+                            intent.putExtra("category", category);
+                            intent.putExtra("start",String.valueOf(drug_start.get(position)));
+                            intent.putExtra("end",String.valueOf(drug_end.get(position)));
 
                             activity.startActivityForResult(intent,1);
                             return true;
@@ -121,7 +129,7 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.MyViewHolder> 
             public void onClick(DialogInterface dialog, int which) {
                 if (activity instanceof CategoryDisplayData) {
                     DbSchemaSqlite dbSchemaSqlite = new DbSchemaSqlite(context);
-                    
+
                 }
             }
         });
@@ -146,10 +154,6 @@ public class DrugAdapter extends RecyclerView.Adapter<DrugAdapter.MyViewHolder> 
         ImageView imageView;
         ImageButton imageButton;
         TextView drug_name,drug_amount,drug_price;
-
-
-
-
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
