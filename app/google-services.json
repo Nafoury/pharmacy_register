@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015519616642",
+    "project_id": "pharmacystore-bf92d",
+    "storage_bucket": "pharmacystore-bf92d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015519616642:android:f5d2f9e6c1302f0fc7de9b",
+        "android_client_info": {
+          "package_name": "com.example.pharamacydrugregisteration"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPT9Id6ardfl10HXCxT-zUOaXLFRPEmhI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

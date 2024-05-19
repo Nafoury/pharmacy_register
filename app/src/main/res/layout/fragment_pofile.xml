@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".PofileFragment">
+
+
+    <ImageView
+        android:id="@+id/userImageU"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="104dp"
+        android:src="@drawable/add_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/usernameU"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittextshape"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="name"
+        android:inputType="text"
+        android:padding="10dp"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/usericon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userImageU" />
+
+
+
+    <Button
+        android:id="@+id/updateuser"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/buttonshape"
+        android:text="Update user"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="110dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="140dp"
+        android:background="@drawable/buttonshape"
+        android:text="Log out"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
