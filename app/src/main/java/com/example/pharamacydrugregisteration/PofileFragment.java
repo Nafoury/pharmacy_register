@@ -5,13 +5,11 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,10 +18,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -69,8 +67,11 @@ public class PofileFragment extends Fragment {
                 try {
                     if (getActivity() != null) {
                         bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), result);
-                        // Set the selected image to ImageView or do whatever you want with it
-                        userPhoto.setImageBitmap(bitmap);
+                        // Set the selected image to ImageView using Glide
+                        Glide.with(this)
+                                .load(bitmap)
+                                .transform(new CircleCrop())
+                                .into(userPhoto);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -102,7 +103,11 @@ public class PofileFragment extends Fragment {
             username.setText(userName);
             if (userImage != null) {
                 Bitmap userBitmap = BitmapFactory.decodeByteArray(userImage, 0, userImage.length);
-                userPhoto.setImageBitmap(userBitmap);
+                // Load user image using Glide
+                Glide.with(this)
+                        .load(userBitmap)
+                        .transform(new CircleCrop())
+                        .into(userPhoto);
             }
         }
 

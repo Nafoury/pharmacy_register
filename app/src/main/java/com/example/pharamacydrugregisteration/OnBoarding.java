@@ -8,9 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class OnBoarding extends AppCompatActivity {
 
     Button next2;
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,18 +26,27 @@ public class OnBoarding extends AppCompatActivity {
             actionBar.hide();
         }
 
-        next2=findViewById(R.id.next2);
+        next2 = findViewById(R.id.next2);
+        auth = FirebaseAuth.getInstance(); // Initialize FirebaseAuth instance
+        FirebaseUser currentUser = auth.getCurrentUser();
 
-        next2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create Intent to move to the OnBoarding activity
-                Intent intent = new Intent(OnBoarding.this, SignUpActivity.class);
+        if (currentUser != null) {
+            // User is logged in, navigate to the home page
+            Intent intent = new Intent(OnBoarding.this, CommonPage.class); // Replace HomePage with your home activity
+            startActivity(intent);
+            finish();
+        } else {
+            // User is not logged in, show onboarding screen
+            next2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Create Intent to move to the SignUp activity
+                    Intent intent = new Intent(OnBoarding.this, SignUpActivity.class);
 
-                // Start the OnBoarding activity
-                startActivity(intent);
-            }
-        });
-
+                    // Start the SignUp activity
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }

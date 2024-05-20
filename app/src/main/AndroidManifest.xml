@@ -20,7 +20,8 @@
 
         <activity
             android:name=".CommonPage"
-            android:exported="false" />
+            android:exported="false"
+            />
 
         <activity
             android:name=".UpdateActivity"

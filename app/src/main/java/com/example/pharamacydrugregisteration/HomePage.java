@@ -1,5 +1,6 @@
 package com.example.pharamacydrugregisteration;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,11 @@ public class HomePage extends AppCompatActivity {
         cardView6=findViewById(R.id.vitamins1);
 
         addB=findViewById(R.id.add_button);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         addB.setOnClickListener(new View.OnClickListener() {
             @Override
